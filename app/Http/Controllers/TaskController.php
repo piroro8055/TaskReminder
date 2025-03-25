@@ -13,4 +13,32 @@ class TaskController extends Controller
 
     }
  
+    public function create()
+    {
+        return view('tasks.create');
+
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+           'title' => 'required|max:225',
+           'description' => 'nullable',
+           'priority' => 'required|max:225',
+           'due_date' => 'nullable|max:225',
+        ]);
+        
+        Task::create([
+            'title' => 'required|max:225',
+            'description' => 'nullable',
+            'priority' => 'required|max:225',
+            'due_date' => 'nullable|max:225',
+        ]);
+        
+        
+         return view('tasks.create');
+
+    }
+
+
 }
