@@ -22,17 +22,17 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'title' => 'required|max:225',
-           'description' => 'nullable',
-           'priority' => 'required|max:225',
-           'due_date' => 'nullable|max:225',
+           'title'=>'required|max:225',
+           'description'=>'nullable',
+           'priority'=>'required|max:225',
+           'due_date'=>'nullable|max:225',
         ]);
         
         Task::create([
-            'title' => 'required|max:225',
-            'description' => 'nullable',
-            'priority' => 'required|max:225',
-            'due_date' => 'nullable|max:225',
+            'title'=>$request->input('title'),
+            'description'=>$request->input('description'),
+            'priority'=>$request->input('priority'),
+            'due_date'=>$request->input('duedate'),
         ]);
         
         
