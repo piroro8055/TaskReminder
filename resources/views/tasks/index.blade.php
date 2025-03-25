@@ -11,7 +11,7 @@
     <br>
     <br>
     <div class="container text-center">
-        <h1>Task Management System</h1>
+        <h1>Task Reminder System</h1>
 
         <h2>Task List</h2> @if(session('success'))
         <div class="alert alert-success">
