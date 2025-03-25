@@ -13,30 +13,30 @@ class TaskController extends Controller
 
     }
  
-    public function create()
+    public function edit()
     {
-        return view('tasks.create');
+        return view('tasks.edit',compact('task'));
 
     }
 
-    public function store(Request $request)
+    public function update(Request $request,Task $task)
     {
         $request->validate([
            'title'=>'required|max:225',
            'description'=>'nullable',
-           'priority'=>'required|max:225',
+           'priority'=>'required|in:low,medium,high',
            'due_date'=>'nullable|max:225',
         ]);
         
-        Task::create([
+        $task->update([
             'title'=>$request->input('title'),
             'description'=>$request->input('description'),
             'priority'=>$request->input('priority'),
-            'due_date'=>$request->input('duedate'),
+            'due_date'=>$request->input('due_date'),
         ]);
         
         
-         return view('tasks.create');
+         return redirect()->route('tasks.index')->with('success','Task updated Created');
 
     }
 
