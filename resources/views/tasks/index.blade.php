@@ -40,12 +40,12 @@
                     <td>{{ $task->description }}</td>
                     <td>{{ $task->priority }}</td>
                     <td>{{ $task->due_date }}</td>
-                    <td>
+                 <td>
                         <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-primary btn-sm">
                             <i class="fa fa-edit"></i> Edit
                         </a>
 
-                    </td>
+                </td>
                    
 
                 </tr>
