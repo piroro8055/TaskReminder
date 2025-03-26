@@ -22,7 +22,7 @@
     </div>
 
     <div class="container">
-        <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3">Remind Me</a>
+        <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3">Create A Task</a>
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -53,6 +53,15 @@
                                 <i class="fa fa-trash"></i> Delete
                             </button>
                     </form>
+                  
+                    @if (!$task->completed)
+                        <form action="{{ route('tasks.complete', $task->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-warning btn-sm">
+                                <i class="fa fa-check"></i> Complete
+                            </button>
+                        </form>
+                        @endif
 
                 </td>
                    
