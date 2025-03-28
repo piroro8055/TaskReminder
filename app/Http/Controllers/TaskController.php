@@ -35,12 +35,12 @@ class TaskController extends Controller
         ]);
 
         return redirect()->route('tasks.index')->with('success','Task Created');
-
+    }
 
     public function edit()
-    {
+    {   
         return view('tasks.edit',compact('task'));
-        
+
     }
 
     public function update(Request $request,Task $task)
