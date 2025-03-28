@@ -52,7 +52,7 @@ class TaskController extends Controller
             'completed'=>true,
             'completed_at' =>now(),
         ]);
-        return redirect()->route('tasks.index')->with('success','Task completed');
+        return redirect()->route('tasks.complete')->with('success','Task completed');
 
     }
 
