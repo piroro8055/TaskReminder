@@ -52,13 +52,14 @@ class TaskController extends Controller
             'completed'=>true,
             'completed_at' =>now(),
         ]);
-        return redirect()->route('tasks.complete')->with('success','Task completed');
+        return redirect()->route('tasks.index')->with('success','Task completed');
 
     }
 
-    public function showcompleted(Task $task)
+    public function showCompleted(Task $task)
     {
-        $completedTasks = Task::where('completed',true)->orderBy('competed_at','desc')->get();
+        $completedTasks = Task::where('completed',true)->orderBy('completed_at','desc')->get();
+       
         return view('taskshow',compact('completedTask'));
     }
 
